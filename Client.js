@@ -26,10 +26,13 @@ export class CurrentAcount{
     agency;
     balance = 0;
     client;
+    static numberOfAccounts = 0;
+
 
     constructor(agency, client){
         this.agency = agency;
         this.client = client;
+        CurrentAcount.numberOfAccounts ++;
     }
 
     withdraw(value) {

@@ -23,3 +23,5 @@ currentAcount1.transfer(1000, currentAcount2);
 
 console.log(currentAcount1, '\n',currentAcount2);
 
+console.log(CurrentAcount.numberOfAccounts);
+
