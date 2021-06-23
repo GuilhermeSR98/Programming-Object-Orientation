@@ -1,13 +1,36 @@
 export class Client{
-    name;
-    cpf;
-    rg
+    _name;
+    _cpf;
+    _rg;
+
+    get name(){
+        return this._name;
+    }
+
+    get cpf(){
+        return this._cpf;
+    }
+
+    get rg(){
+        return this._rg;
+    }
+
+    constructor(name, cpf, rg){
+        this._name = name;
+        this._cpf = cpf;
+        this._rg = rg;
+    }
 }
 
 export class CurrentAcount{
-    agency = 1;
+    agency;
     balance = 0;
     client;
+
+    constructor(agency, client){
+        this.agency = agency;
+        this.client = client;
+    }
 
     withdraw(value) {
        if(this.balance < value || value <= 0) {
