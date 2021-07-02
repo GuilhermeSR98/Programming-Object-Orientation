@@ -1,10 +1,10 @@
 export class Client{
-    _name;
+    name;
     _cpf;
     _rg;
 
     get name(){
-        return this._name;
+        return this.name;
     }
 
     get cpf(){
@@ -16,49 +16,8 @@ export class Client{
     }
 
     constructor(name, cpf, rg){
-        this._name = name;
+        this.name = name;
         this._cpf = cpf;
         this._rg = rg;
     }
-}
-
-export class CurrentAcount{
-    agency;
-    balance = 0;
-    client;
-    static numberOfAccounts = 0;
-
-
-    constructor(agency, client){
-        this.agency = agency;
-        this.client = client;
-        CurrentAcount.numberOfAccounts ++;
-    }
-
-    withdraw(value) {
-       if(this.balance < value || value <= 0) {
-           console.log(`Insufficient balance to do a ${value} withdraw.`);
-           return;
-       }
-       this.balance -= value;
-       return value;
-   }
-
-   deposit(value){
-       if(value > 0) {
-         this.balance += value;  
-       }
-       else {
-           console.log('Must be a value greater than 0.')
-       }
-   }
-
-   transfer(value, acount){
-       if(value <= 0 || value > this.balance){
-           console.log(`Unable to transfer.`);
-           return;
-       }
-       const amount = this.withdraw(value);
-       acount.deposit(amount);
-   }
 }
